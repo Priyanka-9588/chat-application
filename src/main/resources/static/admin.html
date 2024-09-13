@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center">Admin Dashboard</h2>
+
+    <!-- Admin Login -->
+    <div id="adminLogin" class="card mt-4">
+        <div class="card-header">Admin Login</div>
+        <div class="card-body">
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminUsername">Username</label>
+                    <input type="text" id="adminUsername" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" class="form-control">
+                </div>
+                <button type="button" class="btn btn-success" onclick="adminLogin()">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Actions Navigation -->
+    <div id="adminActionsNav" class="card mt-4" style="display:none;">
+        <div class="card-header">Admin Actions</div>
+        <div class="card-body">
+            <button class="btn btn-primary mb-2" onclick="showSection('createUserSection')">Create User</button>
+            <button class="btn btn-warning mb-2" onclick="showSection('updateUserSection')">Update User</button>
+            <button class="btn btn-danger mb-2" onclick="showSection('deleteUserSection')">Delete User</button>
+            <button class="btn btn-info mb-2" onclick="showSection('listUsersSection')">List All Users</button>
+        </div>
+    </div>
+
+    <!-- User Creation Section -->
+    <div id="createUserSection" class="card mt-4" style="display:none;">
+        <div class="card-header">Create User</div>
+        <div class="card-body">
+            <form id="createUserForm">
+                <div class="form-group">
+                    <label for="createUsername">Username</label>
+                    <input type="text" id="createUsername" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="createPassword">Password</label>
+                    <input type="password" id="createPassword" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="createName">Name</label>
+                    <input type="text" id="createName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="createEmail">Email</label>
+                    <input type="email" id="createEmail" class="form-control">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="createUser()">Create User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Update Section -->
+    <div id="updateUserSection" class="card mt-4" style="display:none;">
+        <div class="card-header">Update User</div>
+        <div class="card-body">
+            <form id="updateUserForm">
+                <div class="form-group">
+                    <label for="updateUsername">Select User</label>
+                    <select id="updateUsername" class="form-control"></select>
+                </div>
+                <div class="form-group">
+                    <label for="updateName">Name</label>
+                    <input type="text" id="updateName" class="form-control">
+                </div>
+                <button type="button" class="btn btn-warning" onclick="updateUser()">Update User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Deletion Section -->
+    <div id="deleteUserSection" class="card mt-4" style="display:none;">
+        <div class="card-header">Delete User</div>
+        <div class="card-body">
+            <form id="deleteUserForm">
+                <div class="form-group">
+                    <label for="deleteUsername">Select User</label>
+                    <select id="deleteUsername" class="form-control"></select>
+                </div>
+                <button type="button" class="btn btn-danger" onclick="deleteUser()">Delete User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- List All Users Section -->
+    <div id="listUsersSection" class="card mt-4" style="display:none;">
+        <div class="card-header">List All Users</div>
+        <div class="card-body">
+            <button type="button" class="btn btn-info" onclick="getAllUsers()">Get All Users</button>
+            <ul id="allUsersList" class="list-group mt-3"></ul>
+        </div>
+    </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
